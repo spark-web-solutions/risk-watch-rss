@@ -146,7 +146,7 @@ class Spark_Risk_Watch_Rss_Public {
 		$args = array(
 				'posts_per_page' => 10,
 				'post_type' => 'people',
-				'orderby' => 'RAND',
+				'orderby' => 'rand',
 		);
 		$news = get_posts($args);
 
@@ -196,7 +196,7 @@ class Spark_Risk_Watch_Rss_Public {
 		$args = array(
 				'posts_per_page' => 10,
 				'post_type' => 'banner',
-				'orderby' => 'RAND',
+				'orderby' => 'rand',
 				'meta_query' => array(
 						array(
 								'key' => 'day_of_week',
