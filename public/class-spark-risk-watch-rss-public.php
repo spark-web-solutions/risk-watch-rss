@@ -115,7 +115,7 @@ class Spark_Risk_Watch_Rss_Public {
 			$rss .= '	  <description>'."\n";
 			$rss .= '		<![CDATA['.$this->get_post_extract($item).']]>'."\n";
 			$rss .= '	  </description>'."\n";
-			$rss .= '	  <pubDate>'.$now.'</pubDate>'."\n";
+			$rss .= '	  <pubDate>'.get_post_datetime($item)->format(DATE_RSS).'</pubDate>'."\n";
 			if (has_post_thumbnail($item)) {
 				$featured_image = get_post_thumbnail_id($item);
 				$image = wp_get_attachment_image_src($featured_image, 'full');
@@ -168,7 +168,7 @@ class Spark_Risk_Watch_Rss_Public {
 			$rss .= '	  <description>'."\n";
 			$rss .= '		<![CDATA['.$this->get_post_extract($item).']]>'."\n";
 			$rss .= '	  </description>'."\n";
-			$rss .= '	  <pubDate>'.$now.'</pubDate>'."\n";
+			$rss .= '	  <pubDate>'.get_post_datetime($item)->format(DATE_RSS).'</pubDate>'."\n";
 			if (has_post_thumbnail($item)) {
 				$featured_image = get_post_thumbnail_id($item);
 				$image = wp_get_attachment_image_src($featured_image, 'full');
@@ -224,7 +224,7 @@ class Spark_Risk_Watch_Rss_Public {
 			$rss .= '	  <description>'."\n";
 			$rss .= '		<![CDATA['.$this->get_post_extract($item).']]>'."\n";
 			$rss .= '	  </description>'."\n";
-			$rss .= '	  <pubDate>'.$now.'</pubDate>'."\n";
+			$rss .= '	  <pubDate>'.get_post_datetime($item)->format(DATE_RSS).'</pubDate>'."\n";
 			if (has_post_thumbnail($item)) {
 				$featured_image = get_post_thumbnail_id($item);
 				$image = wp_get_attachment_image_src($featured_image, 'full');
