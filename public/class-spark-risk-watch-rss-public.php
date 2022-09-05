@@ -118,7 +118,7 @@ class Spark_Risk_Watch_Rss_Public {
 			$rss .= '	  <pubDate>'.get_post_datetime($item)->format(DATE_RSS).'</pubDate>'."\n";
 			if (has_post_thumbnail($item)) {
 				$featured_image = get_post_thumbnail_id($item);
-				$image = wp_get_attachment_image_src($featured_image, 'full');
+				$image = wp_get_attachment_image_src($featured_image, array(329,246));
 				$rss .= '	  <media:content url="'.$image[0].'" fileSize="'.filesize(get_attached_file($featured_image)).'" type="'.get_post_mime_type($featured_image).'" medium="image" width="'.$image[1].'" height="'.$image[2].'" />'."\n";
 			}
 			$cats = wp_get_post_terms($item->ID, 'category', array('fields' => 'names'));
@@ -171,7 +171,7 @@ class Spark_Risk_Watch_Rss_Public {
 			$rss .= '	  <pubDate>'.get_post_datetime($item)->format(DATE_RSS).'</pubDate>'."\n";
 			if (has_post_thumbnail($item)) {
 				$featured_image = get_post_thumbnail_id($item);
-				$image = wp_get_attachment_image_src($featured_image, 'full');
+				$image = wp_get_attachment_image_src($featured_image, array(200, 200));
 				$rss .= '	  <media:content url="'.$image[0].'" fileSize="'.filesize(get_attached_file($featured_image)).'" type="'.get_post_mime_type($featured_image).'" medium="image" width="'.$image[1].'" height="'.$image[2].'" />'."\n";
 			}
 			$rss .= '	  <category>'.get_post_meta($item->ID, 'office_location', true).'</category>'."\n";
@@ -227,7 +227,7 @@ class Spark_Risk_Watch_Rss_Public {
 			$rss .= '	  <pubDate>'.get_post_datetime($item)->format(DATE_RSS).'</pubDate>'."\n";
 			if (has_post_thumbnail($item)) {
 				$featured_image = get_post_thumbnail_id($item);
-				$image = wp_get_attachment_image_src($featured_image, 'full');
+				$image = wp_get_attachment_image_src($featured_image, array(1200, 1200));
 				$rss .= '	  <media:content url="'.$image[0].'" fileSize="'.filesize(get_attached_file($featured_image)).'" type="'.get_post_mime_type($featured_image).'" medium="image" width="'.$image[1].'" height="'.$image[2].'" />'."\n";
 			}
 			$rss .= '	</item>'."\n";
