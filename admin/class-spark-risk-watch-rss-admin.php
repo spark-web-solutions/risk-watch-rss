@@ -81,7 +81,7 @@ class Spark_Risk_Watch_Rss_Admin {
 	 * @since 1.0.0
 	 */
 	public function updates() {
-		new Spark_Risk_Watch_Rss_Updates(SPARK_RISK_WATCH_RSS_PATH, 'spark-web-solutions', 'spark-risk-watch-rss');
+		new Spark_Risk_Watch_Rss_Updates(SPARK_RISK_WATCH_RSS_PATH, 'spark-web-solutions', 'risk-watch-rss');
 	}
 
 }
