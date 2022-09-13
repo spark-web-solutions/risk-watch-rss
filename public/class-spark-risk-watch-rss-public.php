@@ -101,7 +101,7 @@ class Spark_Risk_Watch_Rss_Public {
 		$rss .= '<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">'."\n";
 		$rss .= '  <channel>'."\n";
 		$rss .= '	<title>News</title>'."\n";
-		$rss .= '	<link>'.site_url('/news/').'</link>'."\n";
+		$rss .= '	<link>'.esc_xml(site_url('/news/')).'</link>'."\n";
 		$rss .= '	<description>Latest News from Rodgers Reidy</description>'."\n";
 		$rss .= '	<language>en-au</language>'."\n";
 		$rss .= '	<pubDate>'.$now.'</pubDate>'."\n";
@@ -109,9 +109,9 @@ class Spark_Risk_Watch_Rss_Public {
 		$rss .= '	<managingEditor>'.get_option('admin_email').'</managingEditor>'."\n";
 		foreach ($news as $item) {
 			$rss .= '	<item>'."\n";
-			$rss .= '	  <title>'.$item->post_title.'</title>'."\n";
-			$rss .= '	  <link>'.get_permalink($item).'</link>'."\n";
-			$rss .= '	  <author>'.get_the_author_meta('display_name', $item->post_author).'</author>'."\n";
+			$rss .= '	  <title>'.esc_xml($item->post_title).'</title>'."\n";
+			$rss .= '	  <link>'.esc_xml(get_permalink($item)).'</link>'."\n";
+			$rss .= '	  <author>'.esc_xml(get_the_author_meta('display_name', $item->post_author)).'</author>'."\n";
 			$rss .= '	  <description>'."\n";
 			$rss .= '		<![CDATA['.$this->get_post_extract($item).']]>'."\n";
 			$rss .= '	  </description>'."\n";
@@ -123,7 +123,7 @@ class Spark_Risk_Watch_Rss_Public {
 			}
 			$cats = wp_get_post_terms($item->ID, 'category', array('fields' => 'names'));
 			foreach ($cats as $cat) {
-				$rss .= '	  <category>'.$cat.'</category>'."\n";
+				$rss .= '	  <category>'.esc_xml($cat).'</category>'."\n";
 			}
 			$rss .= '	</item>'."\n";
 		}
@@ -154,7 +154,7 @@ class Spark_Risk_Watch_Rss_Public {
 		$rss .= '<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">'."\n";
 		$rss .= '  <channel>'."\n";
 		$rss .= '	<title>Our People</title>'."\n";
-		$rss .= '	<link>'.site_url('/people/').'</link>'."\n";
+		$rss .= '	<link>'.esc_xml(site_url('/people/')).'</link>'."\n";
 		$rss .= '	<description>Rodgers Reidy People</description>'."\n";
 		$rss .= '	<language>en-au</language>'."\n";
 		$rss .= '	<pubDate>'.$now.'</pubDate>'."\n";
@@ -162,9 +162,9 @@ class Spark_Risk_Watch_Rss_Public {
 		$rss .= '	<managingEditor>'.get_option('admin_email').'</managingEditor>'."\n";
 		foreach ($news as $item) {
 			$rss .= '	<item>'."\n";
-			$rss .= '	  <title>'.$item->post_title.'</title>'."\n";
-			$rss .= '	  <link>'.get_permalink($item).'</link>'."\n";
-			$rss .= '	  <author>'.get_the_author_meta('display_name', $item->post_author).'</author>'."\n";
+			$rss .= '	  <title>'.esc_xml($item->post_title).'</title>'."\n";
+			$rss .= '	  <link>'.esc_xml(get_permalink($item)).'</link>'."\n";
+			$rss .= '	  <author>'.esc_xml(get_the_author_meta('display_name', $item->post_author)).'</author>'."\n";
 			$rss .= '	  <description>'."\n";
 			$rss .= '		<![CDATA['.$this->get_post_extract($item).']]>'."\n";
 			$rss .= '	  </description>'."\n";
@@ -174,7 +174,7 @@ class Spark_Risk_Watch_Rss_Public {
 				$image = wp_get_attachment_image_src($featured_image, array(200, 200));
 				$rss .= '	  <media:content url="'.$image[0].'" fileSize="'.filesize(get_attached_file($featured_image)).'" type="'.get_post_mime_type($featured_image).'" medium="image" width="'.$image[1].'" height="'.$image[2].'" />'."\n";
 			}
-			$rss .= '	  <category>'.get_post_meta($item->ID, 'office_location', true).'</category>'."\n";
+			$rss .= '	  <category>'.esc_xml(get_post_meta($item->ID, 'office_location', true)).'</category>'."\n";
 			$rss .= '	</item>'."\n";
 		}
 		$rss .= '  </channel>'."\n";
@@ -210,7 +210,7 @@ class Spark_Risk_Watch_Rss_Public {
 		$rss .= '<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">'."\n";
 		$rss .= '  <channel>'."\n";
 		$rss .= '	<title>Banners</title>'."\n";
-		$rss .= '	<link>'.site_url('/').'</link>'."\n";
+		$rss .= '	<link>'.esc_xml(site_url('/')).'</link>'."\n";
 		$rss .= '	<description>Rodgers Reidy</description>'."\n";
 		$rss .= '	<language>en-au</language>'."\n";
 		$rss .= '	<pubDate>'.$now.'</pubDate>'."\n";
@@ -218,9 +218,9 @@ class Spark_Risk_Watch_Rss_Public {
 		$rss .= '	<managingEditor>'.get_option('admin_email').'</managingEditor>'."\n";
 		foreach ($news as $item) {
 			$rss .= '	<item>'."\n";
-			$rss .= '	  <title>'.$item->post_title.'</title>'."\n";
-			$rss .= '	  <link>'.get_post_meta($item->ID, 'link', true).'</link>'."\n";
-			$rss .= '	  <author>'.get_the_author_meta('display_name', $item->post_author).'</author>'."\n";
+			$rss .= '	  <title>'.esc_xml($item->post_title).'</title>'."\n";
+			$rss .= '	  <link>'.esc_xml(get_post_meta($item->ID, 'link', true)).'</link>'."\n";
+			$rss .= '	  <author>'.esc_xml(get_the_author_meta('display_name', $item->post_author)).'</author>'."\n";
 			$rss .= '	  <description>'."\n";
 			$rss .= '		<![CDATA['.$this->get_post_extract($item).']]>'."\n";
 			$rss .= '	  </description>'."\n";
