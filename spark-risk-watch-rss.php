@@ -16,7 +16,7 @@
  * Plugin Name:       Spark Risk Watch RSS Feeds
  * Plugin URI:        https://sparkweb.com.au/
  * Description:       Generates the custom RSS feeds required by Risk Watch
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Spark Web Solutions
  * Author URI:        https://sparkweb.com.au/
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'SPARK_RISK_WATCH_RSS_VERSION', '1.0.0' );
+define( 'SPARK_RISK_WATCH_RSS_VERSION', '1.0.1' );
 define('SPARK_RISK_WATCH_RSS_PATH', __FILE__);
 
 /**

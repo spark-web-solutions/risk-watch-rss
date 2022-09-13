@@ -22,5 +22,8 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.0.1 =
+* Ensure all text is properly escaped for use in RSS
+
 = 1.0.0 =
 * Initial release
